@@ -1,0 +1,29 @@
+<%# Redmine Cascading Custom Fields - Copyright (C) 2026 Victor Cerqueira - GPL v3 or later %>
+<%= render partial: 'custom_fields/formats/list', locals: { f: f } %>
+
+<% candidates = RedmineCascadingCustomFields.parent_candidates(@custom_field) %>
+<p>
+  <%= f.select :cascade_parent_id,
+               candidates.map { |c| [c.name, c.id.to_s] },
+               { include_blank: true, required: true },
+               id: 'custom_field_cascade_parent_id' %>
+  <% if candidates.empty? %>
+    <em class="info"><%= l(:ccf_no_parent_candidates) %></em>
+  <% end %>
+</p>
+
+<%= hidden_field_tag 'custom_field[cascade_map]',
+                     RedmineCascadingCustomFields.map_for(@custom_field, nil).to_json,
+                     id: 'custom_field_cascade_map' %>
+
+<fieldset class="box" id="ccf-mapping"
+          data-parents="<%= candidates.each_with_object({}) { |c, h| h[c.id.to_s] = Array(c.possible_values).map(&:to_s) }.to_json %>"
+          data-i18n="<%= {
+            title: l(:ccf_mapping_title), help: l(:ccf_mapping_help), chooseParent: l(:ccf_choose_parent),
+            noChildValues: l(:ccf_no_child_values), search: l(:ccf_search), all: l(:ccf_select_all),
+            none: l(:ccf_select_none), unlinked: l(:ccf_unlinked), onlyUnlinked: l(:ccf_only_unlinked),
+            noMatch: l(:ccf_no_match)
+          }.to_json %>">
+  <legend><%= l(:ccf_mapping_title) %></legend>
+  <noscript><%= l(:ccf_requires_javascript) %></noscript>
+</fieldset>

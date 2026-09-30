@@ -1,0 +1,26 @@
+/* Redmine Cascading Custom Fields - Copyright (C) 2026 Victor Cerqueira - GPL v3 or later */
+
+/* Issue form */
+.ccf-hint { font-size: 12px; color: #b45309; margin: 2px 0; }
+
+/* Dependencies editor (custom field form) */
+#ccf-mapping .ccf-help { margin: 0 0 8px; }
+#ccf-mapping .ccf-empty { color: #888; font-style: italic; }
+#ccf-mapping .ccf-unlinked { margin: 0 0 8px; }
+#ccf-mapping details.ccf-parent { border: 1px solid #e0e0e0; border-radius: 6px; margin: 0 0 6px; background: #fff; }
+#ccf-mapping details.ccf-parent > summary { cursor: pointer; padding: 6px 10px; font-weight: bold; }
+#ccf-mapping .ccf-count {
+  display: inline-block; min-width: 1.6em; padding: 0 6px; border-radius: 999px;
+  background: #eef0f3; color: #555; font-size: 11px; font-weight: normal; text-align: center;
+}
+#ccf-mapping .ccf-toolbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 4px 10px 6px; }
+#ccf-mapping .ccf-toolbar .ccf-search { flex: 1 1 200px; max-width: 320px; }
+/* Redmine's ".tabular label" floats labels to the left with a negative margin: undo it here. */
+#ccf-mapping .ccf-toolbar label.ccf-only,
+#ccf-mapping .ccf-options label { float: none; display: inline-flex; align-items: center; gap: 4px;
+  width: auto; margin: 0; padding: 0; text-align: left; font-weight: normal; white-space: nowrap; }
+#ccf-mapping .ccf-options label { white-space: normal; }
+#ccf-mapping .ccf-options {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 2px 12px;
+  max-height: 22em; overflow-y: auto; padding: 4px 10px 10px;
+}
