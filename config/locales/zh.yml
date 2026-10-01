@@ -17,3 +17,5 @@ zh:
   ccf_only_unlinked: "仅显示未关联"
   ccf_no_match: "没有匹配的值"
   ccf_requires_javascript: "编辑依赖关系需要 JavaScript。"
+  field_cascade_hide_empty: "无可用选项时隐藏"
+  ccf_hide_empty_info: "当父字段为空，或父字段中所选的值没有关联的值时，在问题表单中隐藏此字段。隐藏期间，此字段不是必填项。"

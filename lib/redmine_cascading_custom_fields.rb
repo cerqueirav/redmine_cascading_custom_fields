@@ -47,6 +47,30 @@ module RedmineCascadingCustomFields
     CustomField.find_by(id: id)
   end
 
+  # "Hide when there are no options": the field is hidden in the issue form while
+  # the parent selection allows no value (or the parent is empty).
+  def hide_empty?(custom_field)
+    custom_field.respond_to?(:cascade_hide_empty) && custom_field.cascade_hide_empty.to_s == '1'
+  end
+
+  # True when +custom_field+ is hidden on +customized+ because the current parent
+  # selection allows no value. Such a field cannot be required: the user cannot fill it.
+  def hidden_field?(customized, custom_field)
+    return false unless custom_field.field_format == FORMAT && hide_empty?(custom_field)
+    return false unless customized.respond_to?(:custom_field_values)
+    parent = parent_of(custom_field)
+    values = customized.custom_field_values
+    parent_value = parent && values.detect { |v| v.custom_field.id == parent.id }
+    return false if parent_value.nil? # parent not available for this object: the field is shown
+    parent_values = Array(parent_value.value).map(&:to_s).reject(&:empty?)
+    allowed_values(custom_field, parent_values).empty?
+  end
+
+  def hidden_field_ids(customized)
+    return [] unless customized.respond_to?(:custom_field_values)
+    customized.custom_field_values.map(&:custom_field).select { |cf| hidden_field?(customized, cf) }.map(&:id)
+  end
+
   # Union of the child values allowed for the given parent values.
   def allowed_values(custom_field, parent_values, map = map_for(custom_field))
     Array(parent_values).map(&:to_s).flat_map { |v| map[v] || [] }.uniq

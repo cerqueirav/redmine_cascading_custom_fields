@@ -17,3 +17,5 @@ ja:
   ccf_only_unlinked: "未関連付けのみ"
   ccf_no_match: "一致する値はありません"
   ccf_requires_javascript: "依存関係の編集には JavaScript が必要です。"
+  field_cascade_hide_empty: "選択肢がない場合は非表示"
+  ccf_hide_empty_info: "親フィールドが空の場合、または親で選択した値に関連付けられた値がない場合、チケットのフォームでこのフィールドを非表示にします。非表示の間、このフィールドは必須になりません。"

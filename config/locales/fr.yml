@@ -17,3 +17,5 @@ fr:
   ccf_only_unlinked: "Uniquement non liées"
   ccf_no_match: "Aucune valeur trouvée"
   ccf_requires_javascript: "La modification des dépendances nécessite JavaScript."
+  field_cascade_hide_empty: "Masquer lorsqu'aucune option n'est disponible"
+  ccf_hide_empty_info: "Masque le champ dans le formulaire de la demande tant que le champ parent est vide ou que les valeurs sélectionnées du parent n'ont aucune valeur liée. Lorsqu'il est masqué, le champ n'est pas obligatoire."

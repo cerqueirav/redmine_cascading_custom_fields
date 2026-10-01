@@ -17,3 +17,5 @@ de:
   ccf_only_unlinked: "Nur ohne Zuordnung"
   ccf_no_match: "Keine passenden Werte"
   ccf_requires_javascript: "Zum Bearbeiten der Abhängigkeiten ist JavaScript erforderlich."
+  field_cascade_hide_empty: "Ausblenden, wenn keine Optionen verfügbar sind"
+  ccf_hide_empty_info: "Blendet das Feld im Ticketformular aus, solange das übergeordnete Feld leer ist oder die ausgewählten Werte des übergeordneten Felds keine verknüpften Werte haben. Solange es ausgeblendet ist, ist das Feld kein Pflichtfeld."

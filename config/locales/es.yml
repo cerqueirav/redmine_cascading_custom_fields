@@ -17,3 +17,5 @@ es:
   ccf_only_unlinked: "Solo sin vínculo"
   ccf_no_match: "No se encontraron valores"
   ccf_requires_javascript: "Editar las dependencias requiere JavaScript."
+  field_cascade_hide_empty: "Ocultar cuando no haya opciones"
+  ccf_hide_empty_info: "Oculta el campo en el formulario de la petición mientras el campo padre esté vacío o mientras los valores seleccionados en el padre no tengan valores vinculados. Mientras está oculto, el campo no es obligatorio."
