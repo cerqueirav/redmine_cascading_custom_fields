@@ -11,7 +11,7 @@ module RedmineCascadingCustomFields
   class CascadingListFormat < Redmine::FieldFormat::ListFormat
     add RedmineCascadingCustomFields::FORMAT
     self.form_partial = 'custom_fields/formats/cascading_list'
-    field_attributes :cascade_parent_id, :cascade_map
+    field_attributes :cascade_parent_id, :cascade_map, :cascade_hide_empty
 
     def label
       'label_cascading_list'
@@ -89,6 +89,7 @@ module RedmineCascadingCustomFields
         cascade_parent: parent.id,
         cascade_map: RedmineCascadingCustomFields.map_for(custom_field, parent).to_json
       )
+      data[:cascade_hide] = '1' if RedmineCascadingCustomFields.hide_empty?(custom_field)
       options.merge(data: data)
     end
   end

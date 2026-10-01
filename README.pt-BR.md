@@ -6,7 +6,10 @@ Este plugin adiciona o tipo de campo personalizado **"Lista (em cascata)"**: uma
 
 ## Novidades
 
-* 0.1.0: primeira versão. Veja o [CHANGELOG](CHANGELOG.md).
+* 0.2.0: opção para ocultar o campo enquanto a seleção do pai não oferecer opções.
+* 0.1.0: primeira versão.
+
+Veja o [CHANGELOG](CHANGELOG.md).
 
 ## Funcionalidades
 
@@ -18,6 +21,8 @@ Este plugin adiciona o tipo de campo personalizado **"Lista (em cascata)"**: uma
 * **Validação no servidor**: combinações inválidas são recusadas pela validação do próprio campo, que vale para qualquer gravação
   (testado: formulário e edição em massa; API REST e importação CSV passam pela mesma validação).
   Registros antigos com combinações antigas continuam editáveis enquanto os campos em cascata não forem alterados.
+* **Ocultar quando não houver opções** (opcional, por campo): o campo some enquanto o pai estiver vazio ou enquanto
+  os valores marcados no pai não tiverem valores vinculados, e deixa de ser obrigatório enquanto estiver oculto.
 * **Editor de vínculo** na tela do campo: uma seção por valor do pai, com lista pesquisável,
   "marcar/desmarcar todos os exibidos", "só os sem vínculo" e contador de valores sem vínculo.
 * Funciona no formulário da tarefa (inclusive nas recargas AJAX ao trocar tipo/situação) e na **edição em massa**.
@@ -64,6 +69,7 @@ git clone --branch v0.1.0 https://github.com/cerqueirav/redmine_cascading_custom
 1. Crie o campo pai: *Administração → Campos personalizados → Novo campo*, tipo **Lista** (ex.: *Macrorregião*).
 2. Crie o campo filho com o tipo **Lista (em cascata)**, preencha os valores possíveis e escolha o **Campo pai**.
 3. Em **Vínculo**, abra cada valor do pai e marque os valores do filho que ele permite. Salve.
+4. Opcional: marque **Ocultar quando não houver opções** para ocultar o campo enquanto a seleção do pai não oferecer valores.
 
 ## Migrando do Redmine Depending Custom Fields
 

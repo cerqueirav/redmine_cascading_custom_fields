@@ -6,7 +6,10 @@ This plugin adds a **"List (cascading)"** custom field format: a list whose opti
 
 ## What's new
 
-* 0.1.0: First release. See [CHANGELOG](CHANGELOG.md).
+* 0.2.0: option to hide the field while there are no options for the parent selection.
+* 0.1.0: First release.
+
+See [CHANGELOG](CHANGELOG.md).
 
 ## Features
 
@@ -18,6 +21,8 @@ This plugin adds a **"List (cascading)"** custom field format: a list whose opti
 * **Server-side validation**: invalid combinations are rejected by the custom field validation, so it applies to every save
   (tested: issue form and bulk edit; REST API and CSV import go through the same validation). Existing records with
   old combinations can still be edited as long as the cascading fields are not changed.
+* **Hide when there are no options** (optional, per field): the field disappears while the parent is empty or while
+  the selected parent values have no linked values, and it is not required while hidden.
 * **Dependencies editor** on the custom field form: one section per parent value, with a searchable checklist,
   "check/uncheck all shown", "only not linked" and a counter of values not linked to any parent value.
 * Works in the issue form (including the AJAX reloads when the tracker/status changes) and in **bulk edit**.
@@ -64,6 +69,7 @@ git clone --branch v0.1.0 https://github.com/cerqueirav/redmine_cascading_custom
 1. Create the parent field: *Administration → Custom fields → New custom field*, format **List** (e.g. *State*).
 2. Create the child field with the format **List (cascading)**, fill in its possible values and choose the **Parent field**.
 3. In **Dependencies**, open each parent value and check the child values it allows. Save.
+4. Optional: check **Hide when there are no options** to hide the field while the parent selection offers no value.
 
 ## Migrating from Redmine Depending Custom Fields
 

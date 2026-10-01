@@ -9,6 +9,7 @@
 require_relative 'lib/redmine_cascading_custom_fields'
 require_relative 'lib/redmine_cascading_custom_fields/cascading_list_format'
 require_relative 'lib/redmine_cascading_custom_fields/hooks'
+require_relative 'lib/redmine_cascading_custom_fields/issue_patch'
 
 Redmine::Plugin.register :redmine_cascading_custom_fields do
   name 'Redmine Cascading Custom Fields'
@@ -16,10 +17,13 @@ Redmine::Plugin.register :redmine_cascading_custom_fields do
   author_url 'mailto:dev.cerqueirav@gmail.com'
   description 'Adds a "List (cascading)" custom field format whose options depend on the value(s) ' \
               'of a parent list field, keeping still-valid selections when the parent changes.'
-  version '0.1.0'
+  version '0.2.0'
   url 'https://github.com/cerqueirav/redmine_cascading_custom_fields'
   requires_redmine version_or_higher: '4.2'
 end
 
-# Parent field and value mapping are stored in custom_fields.format_store.
-CustomField.safe_attributes 'cascade_parent_id', 'cascade_map'
+# Parent field, value mapping and options are stored in custom_fields.format_store.
+CustomField.safe_attributes 'cascade_parent_id', 'cascade_map', 'cascade_hide_empty'
+
+CustomField.prepend(RedmineCascadingCustomFields::CustomFieldPatch) unless CustomField < RedmineCascadingCustomFields::CustomFieldPatch
+Issue.prepend(RedmineCascadingCustomFields::IssuePatch) unless Issue < RedmineCascadingCustomFields::IssuePatch

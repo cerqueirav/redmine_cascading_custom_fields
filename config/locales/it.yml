@@ -17,3 +17,5 @@ it:
   ccf_only_unlinked: "Solo non collegati"
   ccf_no_match: "Nessun valore trovato"
   ccf_requires_javascript: "La modifica delle dipendenze richiede JavaScript."
+  field_cascade_hide_empty: "Nascondi quando non ci sono opzioni"
+  ccf_hide_empty_info: "Nasconde il campo nel modulo della segnalazione finché il campo padre è vuoto o finché i valori selezionati nel padre non hanno valori collegati. Quando è nascosto, il campo non è obbligatorio."

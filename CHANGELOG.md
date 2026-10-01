@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0
+
+* New option per field: **Hide when there are no options**. The field (label included) is hidden in the
+  issue form while the parent field is empty or while the selected parent values have no linked values.
+  With several parent values selected, the field is shown as soon as one of them has linked values.
+* A field hidden for lack of options is not required (even if marked as required or required by the workflow).
+* In bulk edit, the field is never hidden (the parent value may differ per issue).
+* Translations of the new option in the 10 languages.
+* Tested on Redmine 4.2, 5.0, 5.1, 6.0 and 6.1.
+
 ## 0.1.0
 
 * First release.

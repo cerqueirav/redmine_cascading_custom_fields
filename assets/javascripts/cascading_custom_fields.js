@@ -10,6 +10,7 @@
  * Contract with the server (see CascadingListFormat#with_cascade_data):
  *   data-cascade-field="<id>" data-cascade-parent="<parent id>"
  *   data-cascade-map='{"<parent value>": ["<child value>", ...]}'
+ *   data-cascade-hide="1" (optional): hide the field while no option is available
  * State exposed to other plugins (e.g. Searchable Custom Fields):
  *   data-cascade-waiting="1" while the parent field has no value.
  */
@@ -103,6 +104,13 @@
     el.hidden = false;
   }
 
+  // Hides the whole field (label included) while the parent selection allows no value.
+  function setHidden(child, hide) {
+    var box = child.closest('p') || child.parentNode;
+    if (!box || box.classList.contains('ccf-hidden') === hide) return;
+    box.classList.toggle('ccf-hidden', hide);
+  }
+
   function notifyChange(child) {
     var target = isSelect(child) ? child : choiceInputs(child)[0];
     if (target) target.dispatchEvent(new Event('change', { bubbles: true }));
@@ -146,8 +154,11 @@
     }
 
     var waiting = !noChange && parentValues.length === 0;
+    var empty = !noChange && allowed.length === 0;
+    var hide = !bulk && empty && child.getAttribute('data-cascade-hide') === '1';
     child.setAttribute('data-cascade-waiting', waiting ? '1' : '0');
-    hint(child, waiting ? T.waiting : (!noChange && allowed.length === 0 ? T.noOptions : ''));
+    setHidden(child, hide);
+    hint(child, hide ? '' : (waiting ? T.waiting : (empty ? T.noOptions : '')));
 
     if (changed) notifyChange(child); // updates grandchildren and other listeners
     return changed;

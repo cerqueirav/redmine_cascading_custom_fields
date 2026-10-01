@@ -12,6 +12,11 @@
   <% end %>
 </p>
 
+<p>
+  <%= f.check_box :cascade_hide_empty %>
+  <em class="info"><%= l(:ccf_hide_empty_info) %></em>
+</p>
+
 <%= hidden_field_tag 'custom_field[cascade_map]',
                      RedmineCascadingCustomFields.map_for(@custom_field, nil).to_json,
                      id: 'custom_field_cascade_map' %>

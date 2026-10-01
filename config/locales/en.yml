@@ -17,3 +17,5 @@ en:
   ccf_only_unlinked: "Only not linked"
   ccf_no_match: "No matching values"
   ccf_requires_javascript: "Editing dependencies requires JavaScript."
+  field_cascade_hide_empty: "Hide when there are no options"
+  ccf_hide_empty_info: "Hides the field in the issue form while the parent field is empty or while the selected parent values have no linked values. While hidden, the field is not required."
