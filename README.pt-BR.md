@@ -4,6 +4,8 @@ Este plugin adiciona o tipo de campo personalizado **"Lista (em cascata)"**: uma
 
 [English](README.md)
 
+<img src="./docs/images/cascading-custom-fields.gif" width="800px">
+
 ## Novidades
 
 * 0.2.0: opção para ocultar o campo enquanto a seleção do pai não oferecer opções.
@@ -32,6 +34,12 @@ Veja o [CHANGELOG](CHANGELOG.md).
 * Traduzido para 10 idiomas: inglês, português (Brasil), português (Portugal), espanhol, francês, italiano, alemão, russo, japonês e chinês (simplificado).
 
 ## Capturas de tela
+
+### Ocultar quando não houver opções (0.2.0)
+
+O campo filho some enquanto os valores marcados no pai não tiverem valores vinculados, e volta assim que um deles tiver.
+
+<img src="./docs/images/hide-when-no-options.gif" width="800px">
 
 ### Formulário da tarefa
 *State* (Lista) → *City* (Lista em cascata, caixas de seleção, com o Searchable Custom Fields) → *Health unit* (Lista em cascata).

@@ -4,6 +4,8 @@ This plugin adds a **"List (cascading)"** custom field format: a list whose opti
 
 [Português (Brasil)](README.pt-BR.md)
 
+<img src="./docs/images/cascading-custom-fields.gif" width="800px">
+
 ## What's new
 
 * 0.2.0: option to hide the field while there are no options for the parent selection.
@@ -32,6 +34,12 @@ See [CHANGELOG](CHANGELOG.md).
 * Translated into 10 languages: English, Portuguese (Brazil), Portuguese (Portugal), Spanish, French, Italian, German, Russian, Japanese and Chinese (Simplified).
 
 ## Screenshots
+
+### Hide when there are no options (0.2.0)
+
+The child field disappears while the selected parent values have no linked values, and comes back as soon as one of them has.
+
+<img src="./docs/images/hide-when-no-options.gif" width="800px">
 
 ### Issue form
 *State* (List) → *City* (List (cascading), check boxes, with Searchable Custom Fields) → *Health unit* (List (cascading)).
